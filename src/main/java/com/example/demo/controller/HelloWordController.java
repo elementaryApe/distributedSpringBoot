@@ -3,6 +3,9 @@ package com.example.demo.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 /**
  * Desc: helloWord
  * User: hansh
@@ -10,12 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
  * Time: 17:23
  */
 @RestController
-@RequestMapping("/hello")
 public class HelloWordController {
 
-    @RequestMapping("/one")
-    public String index(){
-        String json="helloWord";
-        return  json ;
+    @RequestMapping("/hello")
+    public Response index() {
+        String json = "helloWord";
+        return Response.status(Response.Status.OK).entity(json).type(MediaType.APPLICATION_JSON).build();
     }
 }
